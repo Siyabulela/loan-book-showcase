@@ -91,7 +91,3 @@ Loan Book existed before the hackathon. Work done for FNB App of the Year Hackat
 ## Source code
 
 Loan Book is a live product, so its source repository is private. **Full source is available to judges on request.**
-
----
-
-Built by [Vela Labs](https://velalabs.co.za) in KwaDukuza, KwaZulu-Natal.
