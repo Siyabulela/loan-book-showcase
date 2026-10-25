@@ -4,7 +4,7 @@
 
 Loan Book is a free Android app for informal lending and savings: money lent to family and friends, small community lenders, and stokvels. It is live on Google Play and Huawei AppGallery with 5,000+ downloads.
 
-[Google Play](https://play.google.com/store/apps/details?id=com.siyabulela.loanbook) · [Huawei AppGallery](https://appgallery.huawei.com/app/C117029041) · [velalabs.co.za](https://velalabs.co.za)
+Download it on [Google Play](https://play.google.com/store/apps/details?id=com.siyabulela.loanbook) or [Huawei AppGallery](https://appgallery.huawei.com/app/C117029041).
 
 Entry by team **Vela Labs** for the **FNB App of the Year Hackathon 2026**, challenge: *Financial inclusion and money confidence*.
 
@@ -64,7 +64,7 @@ flowchart LR
 
 ## Tech stack
 
-Flutter and Dart · Riverpod · Hive (encrypted) · Flutter Secure Storage · Firebase Authentication · Cloud Firestore · Firebase Analytics · Flutter Local Notifications · Local Auth · Syncfusion Charts · GitHub Actions
+Flutter and Dart, Riverpod, Hive (encrypted), Flutter Secure Storage, Firebase Authentication, Cloud Firestore, Firebase Analytics, Flutter Local Notifications, Local Auth, Syncfusion Charts and GitHub Actions.
 
 ## Security and responsible lending
 
@@ -94,4 +94,4 @@ Loan Book is a live product, so its source repository is private. **Full source 
 
 ---
 
-Built by Vela Labs, KwaDukuza, KwaZulu-Natal.
+Built by [Vela Labs](https://velalabs.co.za) in KwaDukuza, KwaZulu-Natal.
