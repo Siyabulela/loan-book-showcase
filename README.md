@@ -27,6 +27,7 @@ Millions of South Africans lend money informally or save in stokvels, and most o
 - **Reports:** monthly summaries of money out and money back.
 - **Offline-first:** everything works without data. Cloud sign-in and backup are optional.
 - **Private by default:** data stays on the phone, encrypted and locked with a PIN or fingerprint.
+- **Account and profile:** see how you signed in and whether your email is verified, and pick an avatar from a set of neutral designs.
 
 ## Architecture
 
@@ -49,11 +50,13 @@ flowchart LR
         Auth["Firebase Auth<br/>email / Google"]
         FS[("Cloud Firestore<br/>sync, groups, organisations")]
         GA["Firebase Analytics"]
+        CR["Firebase Crashlytics"]
     end
     Repo -- "opt-in sync" --> FS
     UI --> Auth
     Auth -. "UID-scoped security rules" .-> FS
     UI --> GA
+    UI --> CR
     CI["GitHub Actions"] --> Stores["Google Play &amp; Huawei AppGallery"]
 ```
 
@@ -64,17 +67,25 @@ flowchart LR
 
 ## Tech stack
 
-Flutter and Dart, Riverpod, Hive (encrypted), Flutter Secure Storage, Firebase Authentication, Cloud Firestore, Firebase Analytics, Flutter Local Notifications, Local Auth, Syncfusion Charts and GitHub Actions.
+Flutter and Dart, Riverpod, Hive (encrypted), Flutter Secure Storage, Firebase Authentication, Cloud Firestore, Firebase Analytics, Firebase Crashlytics, Flutter Local Notifications, Local Auth, Syncfusion Charts and GitHub Actions.
 
 ## Security and responsible lending
 
 Our full SSDLC plan is part of the hackathon submission.
 
-**In the app today:** encrypted local database, PIN and biometric app lock, auto-lock after a set time, UID-scoped Firestore rules, and cloud sync that is off unless the user turns it on.
+**In the hackathon build** (store release to follow):
+
+- Encrypted local database, and cloud sync that is off unless the user turns it on
+- PIN and biometric app lock that always locks again after 5 minutes in the background
+- Shuffled PIN keypad, so smudges and shoulder-surfing don't give the PIN away
+- Brute-force lockout: 1 minute after 5 wrong PINs, doubling to 1 hour from the 10th, and it survives restarting the app
+- Forgot PIN only works by confirming the account with its password or Google sign-in, with a reset-password email if needed
+- UID-scoped Firestore rules
+- Crash reporting with Firebase Crashlytics, so problems are found and fixed quickly
 
 **Planned in our SSDLC:**
 
-- PIN brute-force lockout, a shuffled PIN keypad and a blank screen in Recent Apps
+- A blank screen in Recent Apps, and the PIN stored as a salted hash
 - Two-factor authentication for cloud accounts
 - POPIA: borrower data is never shared with third parties, and any future data sharing is strictly opt-in
 - Loan Book is a record-keeping tool, not a lender. We are adding a "Lend Responsibly" guide covering NCR registration, legal interest-rate limits and fair debt collection.
@@ -85,6 +96,12 @@ Loan Book existed before the hackathon. Work done for FNB App of the Year Hackat
 
 - [x] Team profile, pitch video and SSDLC security plan
 - [x] Reviewed mentor feedback on responsible lending and stokvel visibility
+- [x] Security from our SSDLC: shuffled PIN keypad, brute-force lockout and a fixed 5-minute auto-lock
+- [x] Safer account recovery: Forgot PIN works with a password or Google sign-in, plus a reset-password option
+- [x] Profile redesign: email verification status, a verified badge and an avatar picker
+- [x] Crash reporting with Firebase Crashlytics
+- [x] In-app rating on Huawei phones through AppGallery
+- [x] Home screen polish: overdue alert that opens the overdue loans, and clearer hide-amounts button
 - [ ] New feature: "Lend Responsibly" guide and interest-rate warning (in progress)
 - [ ] Lean Business Canvas, slides and signed APK for judges
 
