@@ -102,8 +102,11 @@ Loan Book existed before the hackathon. Work done for FNB App of the Year Hackat
 - [x] Crash reporting with Firebase Crashlytics
 - [x] In-app rating on Huawei phones through AppGallery
 - [x] Home screen polish: overdue alert that opens the overdue loans, and clearer hide-amounts button
-- [ ] New feature: "Lend Responsibly" guide and interest-rate warning (in progress)
-- [ ] Lean Business Canvas, slides and signed APK for judges
+- [x] Fixed a crash after phone restart and released v1.3.2 to Google Play and Huawei AppGallery
+- [x] Demo account for judges, loaded with loans, stokvels, savings goals and an organisation
+- [x] Lean Business Canvas and signed APK submitted
+- [ ] Slides
+- [ ] Next: "Lend Responsibly" guide and interest-rate warning
 
 ## Source code
 
